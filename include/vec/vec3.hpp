@@ -67,6 +67,11 @@ namespace glt {
                 default: throw;
             }
         }
+
+        // Unary minus
+        inline vec3<T> operator-() {
+            return {-x, -y, -z};
+        }
     };
 
 

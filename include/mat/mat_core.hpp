@@ -58,4 +58,34 @@ namespace glt {
 
         return rotation * m;
     }
+
+
+    // Create a look at orientation matrix
+    // From center, orient vector to point at target
+    template <class T>
+    tmat4<T> lookAt(vec3<T> center, vec3<T> target, vec3<T> up) {
+
+        // The new directions of the axes
+        vec3<T> z = normalize(center - target);
+        vec3<T> x = normalize(cross(up, z));
+        vec3<T> y = cross(z, x);
+
+
+        // The orientation matrix
+        tmat4<T> orientation;
+
+        orientation[0] = x.x;
+        orientation[1] = y.x;
+        orientation[2] = z.x;
+
+        orientation[4] = x.y;
+        orientation[5] = y.y;
+        orientation[6] = z.y;
+
+        orientation[8]  = x.z;
+        orientation[9]  = y.z;
+        orientation[10] = z.z;
+
+        return translate(orientation, -center);
+    }
 }

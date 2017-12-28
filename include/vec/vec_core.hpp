@@ -87,5 +87,16 @@ namespace glt {
     inline vec4<T> normalize(const vec4<T>& a) {
         return a / length(a);
     }
+
+
+    // Return the cross product of two vectors
+    template <class T>
+    inline vec3<T> cross(const vec3<T>& a, const vec3<T>& b) {
+        return {
+                a.y*b.z - a.z*b.y,
+                a.z*b.x - a.x*b.z,
+                a.x*b.y - a.y*b.x
+        };
+    }
 }
 

@@ -94,6 +94,11 @@ namespace glt {
                 default: throw;
             }
         }
+
+        // Unary minus
+        inline vec4<T> operator-() {
+            return {-x, -y, -z, -w};
+        }
     };
 
 
