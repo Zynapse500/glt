@@ -12,6 +12,9 @@
 namespace glt {
 
     // Dot product
+    ///////////////////////////
+    // a . b = |a||b| cos(theta)
+    ///////////////////////////
     template <class T>
     inline T dot(const Vec2<T>& a, const Vec2<T>& b) {
         return a.x * b.x + a.y * b.y;
@@ -29,6 +32,13 @@ namespace glt {
 
 
     // Return the squared length (magnitude) of a vector
+
+    ///////////////////////////
+    // a . b = |a||b| cos(theta)
+    // Therefore:
+    // a . a = |a||a|
+    ///////////////////////////
+
     template <class T>
     inline T squaredLength(const Vec2<T>& a) {
         return dot(a, a);
