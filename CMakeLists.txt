@@ -11,7 +11,7 @@ add_library(glt
         include/glt.hpp
         include/vec/vec.hpp
         include/vec/vec2.hpp
-        include/vec/vec3.hpp include/vec/vec_core.hpp)
+        include/vec/vec3.hpp include/vec/vec_core.hpp include/vec/vec4.hpp)
 
 set_target_properties(glt PROPERTIES LINKER_LANGUAGE CXX)
 
