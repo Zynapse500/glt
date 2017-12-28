@@ -6,6 +6,7 @@
 
 #include "vec2.hpp"
 #include "vec3.hpp"
+#include "vec4.hpp"
 
 
 namespace glt {
@@ -21,28 +22,43 @@ namespace glt {
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
 
-
-    // Return the length (magnitude) of a vector
     template <class T>
-    inline T length(const Vec2<T>& a) {
-        return sqrt(a.x * a.x + a.y * a.y);
-    }
-
-    template <class T>
-    inline T length(const Vec3<T>& a) {
-        return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
+    inline T dot(const Vec4<T>& a, const Vec4<T>& b) {
+        return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
     }
 
 
     // Return the squared length (magnitude) of a vector
     template <class T>
     inline T squaredLength(const Vec2<T>& a) {
-        return a.x * a.x + a.y * a.y;
+        return dot(a, a);
     }
 
     template <class T>
     inline T squaredLength(const Vec3<T>& a) {
-        return a.x * a.x + a.y * a.y + a.z * a.z;
+        return dot(a, a);
+    }
+
+    template <class T>
+    inline T squaredLength(const Vec4<T>& a) {
+        return dot(a, a);
+    }
+
+
+    // Return the length (magnitude) of a vector
+    template <class T>
+    inline T length(const Vec2<T>& a) {
+        return sqrt(squaredLength(a));
+    }
+
+    template <class T>
+    inline T length(const Vec3<T>& a) {
+        return sqrt(squaredLength(a));
+    }
+
+    template <class T>
+    inline T length(const Vec4<T>& a) {
+        return sqrt(squaredLength(a));
     }
 
 
@@ -54,6 +70,11 @@ namespace glt {
 
     template <class T>
     inline Vec3<T> normalize(const Vec3<T>& a) {
+        return a / length(a);
+    }
+
+    template <class T>
+    inline Vec4<T> normalize(const Vec4<T>& a) {
         return a / length(a);
     }
 }
