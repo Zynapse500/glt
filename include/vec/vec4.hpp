@@ -10,22 +10,22 @@
 
 namespace glt {
     template<class T>
-    struct Vec4 {
+    struct vec4 {
     public:
 
         T x, y, z, w;
 
-        inline Vec4() = default;
+        inline vec4() = default;
 
-        inline Vec4(const Vec4<T> &vec) :
+        inline vec4(const vec4<T> &vec) :
                 x(vec.x), y(vec.y), z(vec.z), w(vec.w)
         {}
 
-        inline Vec4(T x, T y, T z, T w) :
+        inline vec4(T x, T y, T z, T w) :
                 x(x), y(y), z(z), w(w)
         {}
 
-        inline explicit Vec4(T a) :
+        inline explicit vec4(T a) :
                 x(a), y(a), z(a), w(a)
         {}
 
@@ -33,42 +33,66 @@ namespace glt {
 
         // Conversion between vector types
 
-        // From Vec2
-        inline Vec4(const Vec2<T>& v, T z = T(), T w = T()) : // NOLINT
+        // From vec2
+        inline vec4(const vec2<T>& v, T z = T(), T w = T()) : // NOLINT
                 x(v.x), y(v.y), z(z), w(w)
         {}
 
-        inline Vec4(T x, const Vec2<T>& v, T w = T()) : // NOLINT
+        inline vec4(T x, const vec2<T>& v, T w = T()) : // NOLINT
                 x(x), y(v.x), z(v.y), w(w)
         {}
 
-        inline Vec4(T x, T y, const Vec2<T>& v) : // NOLINT
+        inline vec4(T x, T y, const vec2<T>& v) : // NOLINT
                 x(x), y(w), z(v.x), w(v.y)
         {}
 
-        inline Vec4(const Vec2<T>& a, const Vec2<T>& b) :
+        inline vec4(const vec2<T>& a, const vec2<T>& b) :
                 x(a.x), y(a.y), z(b.x), w(b.y)
         {}
 
 
-        // From Vec3
-        inline Vec4(const Vec3<T>& v, T w = T()) : // NOLINT
+        // From vec3
+        inline vec4(const vec3<T>& v, T w = T()) : // NOLINT
                 x(v.x), y(v.y), z(v.z), w(w)
         {}
 
-        inline Vec4(T x, const Vec3<T>& v) : // NOLINT
+        inline vec4(T x, const vec3<T>& v) : // NOLINT
                 x(x), y(v.x), z(v.y), w(v.z)
         {}
 
 
 
         // Convert to simpler types
-        inline operator Vec2<T>() { // NOLINT
+        inline operator vec2<T>() { // NOLINT
             return {x, y};
         }
 
-        inline operator Vec3<T>() { // NOLINT
+        inline operator vec3<T>() { // NOLINT
             return {x, y, z};
+        }
+
+
+        // Get value from index
+        inline T& operator[](int index) {
+            switch (index) {
+                case 0: return x;
+                case 1: return y;
+                case 2: return z;
+                case 3: return w;
+
+                default: throw;
+            }
+        }
+
+        inline const T& operator[](int index) const {
+            switch (index) {
+                case 0: return x;
+                case 1: return y;
+                case 2: return z;
+                case 3: return w;
+
+                default: throw;
+            }
         }
     };
 
@@ -78,68 +102,68 @@ namespace glt {
 
     // Addition
     template<class T>
-    inline Vec4<T> operator+(const Vec4<T> &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator+(const vec4<T> &lhs, const vec4<T> &rhs) {
         return {lhs.x + rhs.x, lhs.x + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator+(const T &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator+(const T &lhs, const vec4<T> &rhs) {
         return {lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator+(const Vec4<T> &lhs, const T &rhs) {
+    inline vec4<T> operator+(const vec4<T> &lhs, const T &rhs) {
         return {lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs};
     }
 
 
     // Subtraction
     template<class T>
-    inline Vec4<T> operator-(const Vec4<T> &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator-(const vec4<T> &lhs, const vec4<T> &rhs) {
         return {lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator-(const T &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator-(const T &lhs, const vec4<T> &rhs) {
         return {lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator-(const Vec4<T> &lhs, const T &rhs) {
+    inline vec4<T> operator-(const vec4<T> &lhs, const T &rhs) {
         return {lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs};
     }
 
 
     // Multiplication
     template<class T>
-    inline Vec4<T> operator*(const Vec4<T> &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator*(const vec4<T> &lhs, const vec4<T> &rhs) {
         return {lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator*(const T &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator*(const T &lhs, const vec4<T> &rhs) {
         return {lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator*(const Vec4<T> &lhs, const T &rhs) {
+    inline vec4<T> operator*(const vec4<T> &lhs, const T &rhs) {
         return {lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs};
     }
 
 
     // Division
     template<class T>
-    inline Vec4<T> operator/(const Vec4<T> &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator/(const vec4<T> &lhs, const vec4<T> &rhs) {
         return {lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator/(const T &lhs, const Vec4<T> &rhs) {
+    inline vec4<T> operator/(const T &lhs, const vec4<T> &rhs) {
         return {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w};
     }
 
     template<class T>
-    inline Vec4<T> operator/(const Vec4<T> &lhs, const T &rhs) {
+    inline vec4<T> operator/(const vec4<T> &lhs, const T &rhs) {
         return {lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs};
     }
 }

@@ -1,24 +1,19 @@
 
-cmake_minimum_required(VERSION 2.8.4)
+cmake_minimum_required(VERSION 3.1)
 
 project(GLT)
 
-
-option(GLT_BUILD_EXAMPLES "Build examples" ON)
-
-
-add_library(glt
-        include/glt.hpp
-        include/vec/vec.hpp include/vec/vec_core.hpp
-        include/vec/vec2.hpp include/vec/vec3.hpp include/vec/vec4.hpp
-        )
-
-set_target_properties(glt PROPERTIES LINKER_LANGUAGE CXX)
-
-target_include_directories(glt PUBLIC "include")
+option(GLT_BUILD_EXAMPLES "Should examples be built?" ON)
 
 
+# Create new interface library
+add_library(glt INTERFACE)
 
+# Add path to header files
+target_include_directories(glt INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+
+# Build examples?
 if (GLT_BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()

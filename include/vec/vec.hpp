@@ -13,14 +13,19 @@ namespace glt {
     // Define common vector types
 
     // 2D vectors
-    typedef Vec2<int> Vec2i;
-    typedef Vec2<float> Vec2f;
-    typedef Vec2<double> Vec2d;
+    typedef vec2<int> vec2i;
+    typedef vec2<float> vec2f;
+    typedef vec2<double> vec2d;
 
     // 3D vectors
-    typedef Vec3<int> Vec3i;
-    typedef Vec3<float> Vec3f;
-    typedef Vec3<double> Vec3d;
+    typedef vec3<int> vec3i;
+    typedef vec3<float> vec3f;
+    typedef vec3<double> vec3d;
+
+    // 4D vectors
+    typedef vec4<int> vec4i;
+    typedef vec4<float> vec4f;
+    typedef vec4<double> vec4d;
 
 
 }

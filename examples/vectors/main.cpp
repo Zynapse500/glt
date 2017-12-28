@@ -8,19 +8,19 @@ using namespace std;
 
 // Print vector types
 template <class T>
-void print(glt::Vec2<T> v) {
+void print(glt::vec2<T> v) {
     cout << "[" << v.x << ", " << v.y << "]" << endl;
 }
 
 template <class T>
-void print(glt::Vec3<T> v) {
+void print(glt::vec3<T> v) {
     cout << "[" << v.x << ", " << v.y << ", " << v.z << "]" << endl;
 }
 
 
 int main() {
     // Construct a new vector
-    glt::Vec2f a{2, 4};
+    glt::vec2f a{2, 4};
     cout << "a = ";
     print(a);
 
@@ -31,7 +31,7 @@ int main() {
 
 
     // Construct from scalar
-    glt::Vec2f b{3.f};
+    glt::vec2f b{3.f};
     cout << "b = ";
     print(b);
 
@@ -69,14 +69,14 @@ int main() {
 
 
     // Convert between types
-    cout << "Vec3f(a) = ";
-    print(glt::Vec3f(a));
+    cout << "vec3f(a) = ";
+    print(glt::vec3f(a));
 
-    cout << "Vec3f(a, 1) = ";
-    print(glt::Vec3f(a, 1));
+    cout << "vec3f(a, 1) = ";
+    print(glt::vec3f(a, 1));
 
-    cout << "Vec3f(1, a) = ";
-    print(glt::Vec3f(1, a));
+    cout << "vec3f(1, a) = ";
+    print(glt::vec3f(1, a));
 
 
     // Basic vector operations
@@ -92,5 +92,7 @@ int main() {
     // Normalized form of vector
     cout << "norm(a) = ";
     print(glt::normalize(a));
+
+    return 0;
 }
 
