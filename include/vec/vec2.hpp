@@ -49,6 +49,28 @@ namespace glt {
         }
 
 
+        // Assignment
+        inline vec2<T> operator+=(const vec2<T>& other) {
+            this->x += other.x;
+            this->y += other.y;
+        }
+
+        inline vec2<T> operator-=(const vec2<T>& other) {
+            this->x -= other.x;
+            this->y -= other.y;
+        }
+
+        inline vec2<T> operator*=(const vec2<T>& other) {
+            this->x *= other.x;
+            this->y *= other.y;
+        }
+
+        inline vec2<T> operator/=(const vec2<T>& other) {
+            this->x /= other.x;
+            this->y /= other.y;
+        }
+
+
         // Unary minus
         inline vec2<T> operator-() {
             return {-x, -y};

@@ -69,6 +69,33 @@ namespace glt {
             }
         }
 
+
+        // Assignment
+        inline void operator+=(const vec3<T>& other) {
+            this->x += other.x;
+            this->y += other.y;
+            this->z += other.z;
+        }
+
+        inline void operator-=(const vec3<T>& other) {
+            this->x -= other.x;
+            this->y -= other.y;
+            this->z -= other.z;
+        }
+
+        inline void operator*=(const vec3<T>& other) {
+            this->x *= other.x;
+            this->y *= other.y;
+            this->z *= other.z;
+        }
+
+        inline void operator/=(const vec3<T>& other) {
+            this->x /= other.x;
+            this->y /= other.y;
+            this->z /= other.z;
+        }
+
+
         // Unary minus
         inline vec3<T> operator-() {
             return {-x, -y, -z};
