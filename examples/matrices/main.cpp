@@ -21,7 +21,7 @@ int main() {
 
     glt::mat4 r = a * b;
 
-    glt::mat4 t = glt::rotate(a, 3.14159265359f,{0, 0, 1});
+    glt::mat4 t = glt::rotate(a, 3.14159265359f, {1, 0, 0});
 
     glt::vec4f p{1, 2, 3, 1};
     glt::vec4f res = t * p;
