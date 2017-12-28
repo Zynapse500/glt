@@ -16,12 +16,12 @@ void print(glt::vec4<T> v) {
 
 
 int main() {
-    glt::mat4 a;
-    glt::mat4 b;
+    glt::mat4f a;
+    glt::mat4f b;
 
-    glt::mat4 r = a * b;
+    glt::mat4f r = a * b;
 
-    glt::mat4 t = glt::rotate(a, 3.14159265359f, {1, 0, 0});
+    glt::mat4f t = glt::rotate(a, 3.14159265359f, {1, 0, 0});
 
     glt::vec4f p{1, 2, 3, 1};
     glt::vec4f res = t * p;

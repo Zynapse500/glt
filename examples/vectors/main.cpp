@@ -93,6 +93,11 @@ int main() {
     cout << "norm(a) = ";
     print(glt::normalize(a));
 
+
+    // Convert from vec2f to vec2i
+    glt::vec2f i {1.5, 2.3};
+    print(glt::vec2i(i));
+
     return 0;
 }
 

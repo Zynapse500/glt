@@ -14,6 +14,6 @@ namespace glt {
 
     // Define common matrix types
 
-    typedef tmat4<float> mat4;
+    typedef tmat4<float> mat4f;
     typedef tmat4<double> mat4d;
 }

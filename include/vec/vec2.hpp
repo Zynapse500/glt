@@ -15,7 +15,8 @@ namespace glt {
 
         inline vec2() = default;
 
-        inline vec2(const vec2<T>& vec) :
+        template <class C>
+        inline vec2(const vec2<C>& vec) : // NOLINT
                 x(vec.x), y(vec.y)
         {}
 
@@ -27,7 +28,6 @@ namespace glt {
         inline explicit vec2(T a) :
                 x(a), y(a)
         {}
-
 
         // Get value from index
         inline T& operator[](int index) {

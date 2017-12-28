@@ -17,7 +17,8 @@ namespace glt {
 
         inline vec3() = default;
 
-        inline vec3(const vec3<T> &vec) :
+        template <class C>
+        inline vec3(const vec3<C> &vec) : // NOLINT
                 x(vec.x), y(vec.y), z(vec.z)
         {}
 
