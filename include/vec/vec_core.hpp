@@ -4,6 +4,10 @@
 
 #pragma once
 
+namespace std {
+    #include <cmath>
+}
+
 #include "vec4.hpp"
 #include "vec3.hpp"
 #include "vec2.hpp"
@@ -97,6 +101,77 @@ namespace glt {
                 a.z*b.x - a.x*b.z,
                 a.x*b.y - a.y*b.x
         };
+    }
+
+
+    // Implement rounding for vectors
+
+    // Round downward
+    template <class T>
+    vec2<T> floor(const vec2<T>& v) {
+        v.x = std::floor((v.x));
+        v.y = std::floor((v.y));
+    }
+
+    template <class T>
+    vec3<T> floor(const vec3<T>& v) {
+        v.x = std::floor((v.x));
+        v.y = std::floor((v.y));
+        v.z = std::floor((v.z));
+    }
+
+    template <class T>
+    vec4<T> floor(const vec4<T>& v) {
+        v.x = std::floor((v.x));
+        v.y = std::floor((v.y));
+        v.z = std::floor((v.z));
+        v.w = std::floor((v.w));
+    }
+
+
+    // Round to nearest whole number
+    template <class T>
+    vec2<T> round(const vec2<T>& v) {
+        v.x = std::round((v.x));
+        v.y = std::round((v.y));
+    }
+
+    template <class T>
+    vec3<T> round(const vec3<T>& v) {
+        v.x = std::round((v.x));
+        v.y = std::round((v.y));
+        v.z = std::round((v.z));
+    }
+
+    template <class T>
+    vec4<T> round(const vec4<T>& v) {
+        v.x = std::round((v.x));
+        v.y = std::round((v.y));
+        v.z = std::round((v.z));
+        v.w = std::round((v.w));
+    }
+
+
+    // Round upward
+    template <class T>
+    vec2<T> ceil(const vec2<T>& v) {
+        v.x = std::ceil((v.x));
+        v.y = std::ceil((v.y));
+    }
+
+    template <class T>
+    vec3<T> ceil(const vec3<T>& v) {
+        v.x = std::ceil((v.x));
+        v.y = std::ceil((v.y));
+        v.z = std::ceil((v.z));
+    }
+
+    template <class T>
+    vec4<T> ceil(const vec4<T>& v) {
+        v.x = std::ceil((v.x));
+        v.y = std::ceil((v.y));
+        v.z = std::ceil((v.z));
+        v.w = std::ceil((v.w));
     }
 }
 
