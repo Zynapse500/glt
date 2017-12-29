@@ -67,7 +67,7 @@ namespace glt {
                 T& r = result[COL_ROW(col, row)];
 
                 for (int k = 0; k < 4; ++k) {
-                    r += a[COL_ROW(k, row)] * b[COL_ROW(col, k)];
+                    r += a[COL_ROW(col, k)] * b[COL_ROW(k, row)];
                 }
             }
         }
