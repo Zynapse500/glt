@@ -95,8 +95,9 @@ int main() {
 
 
     // Convert from vec2f to vec2i
-    glt::vec2f i {1.5, 2.3};
-    print(glt::vec2i(i));
+    glt::vec2f f {1.5, 2.3};
+    glt::vec2i i = f;
+    print(static_cast<glt::vec2i>(f));
 
     // Convert from vec4f to vec3f
     glt::vec4f v4{1, 2, 3, 4};

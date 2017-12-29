@@ -37,8 +37,8 @@ namespace glt {
         {}
 
         template <class C>
-        inline explicit operator vec2<C>() {
-            return {x, y};
+        inline operator vec2<C>() {
+            return {C(x), C(y)};
         }
 
 

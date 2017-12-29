@@ -38,7 +38,7 @@ namespace glt {
 
 
 
-        // Conversion between vector types
+        // Promote simpler types
         inline explicit vec3(const vec2<T>& v) :
                 x(v.x), y(v.y), z(T())
         {}
@@ -52,6 +52,7 @@ namespace glt {
         {}
 
 
+        // Demote to simpler types
         template <class C>
         inline operator vec2<C>() {
             return {x, y};
