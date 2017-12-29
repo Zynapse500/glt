@@ -143,27 +143,27 @@ namespace glt {
     template<class T>
     vec2<T> floor(const vec2<T> &v) {
         return {
-                ::floor((v.x)),
-                ::floor((v.y))
+                T(::floor((v.x))),
+                T(::floor((v.y)))
         };
     }
 
     template<class T>
     vec3<T> floor(const vec3<T> &v) {
         return {
-                ::floor((v.x)),
-                ::floor((v.y)),
-                ::floor((v.z)),
+                T(::floor((v.x))),
+                T(::floor((v.y))),
+                T(::floor((v.z))),
         };
     }
 
     template<class T>
     vec4<T> floor(const vec4<T> &v) {
         return {
-                ::floor((v.x)),
-                ::floor((v.y)),
-                ::floor((v.z)),
-                ::floor((v.w))
+                T(::floor((v.x))),
+                T(::floor((v.y))),
+                T(::floor((v.z))),
+                T(::floor((v.w)))
         };
     }
 
@@ -172,27 +172,27 @@ namespace glt {
     template<class T>
     vec2<T> round(const vec2<T> &v) {
         return {
-                ::round((v.x)),
-                ::round((v.y))
+                T(::round((v.x))),
+                T(::round((v.y)))
         };
     }
 
     template<class T>
     vec3<T> round(const vec3<T> &v) {
         return {
-                ::round((v.x)),
-                ::round((v.y)),
-                ::round((v.z))
+                T(::round((v.x))),
+                T(::round((v.y))),
+                T(::round((v.z)))
         };
     }
 
     template<class T>
     vec4<T> round(const vec4<T> &v) {
         return {
-                ::round((v.x)),
-                ::round((v.y)),
-                ::round((v.z)),
-                ::round((v.w))
+                T(::round((v.x))),
+                T(::round((v.y))),
+                T(::round((v.z))),
+                T(::round((v.w)))
         };
     }
 
@@ -201,27 +201,27 @@ namespace glt {
     template<class T>
     vec2<T> ceil(const vec2<T> &v) {
         return {
-                ::ceil((v.x)),
-                ::ceil((v.y))
+                T(::ceil((v.x))),
+                T(::ceil((v.y)))
         };
     }
 
     template<class T>
     vec3<T> ceil(const vec3<T> &v) {
         return {
-                ::ceil((v.x)),
-                ::ceil((v.y)),
-                ::ceil((v.z))
+                T(::ceil((v.x))),
+                T(::ceil((v.y))),
+                T(::ceil((v.z)))
         };
     }
 
     template<class T>
     vec4<T> ceil(const vec4<T> &v) {
         return {
-                ::ceil((v.x)),
-                ::ceil((v.y)),
-                ::ceil((v.z)),
-                ::ceil((v.w))
+                T(::ceil((v.x))),
+                T(::ceil((v.y))),
+                T(::ceil((v.z))),
+                T(::ceil((v.w)))
         };
     }
 }
