@@ -4,43 +4,51 @@
 
 #pragma once
 
-#include "../vec/vec4.hpp"
+#include "../vec/vec3.hpp"
+#include <array>
 
 namespace glt {
 
 // Convert a column and row to an index in a matrix
-#define COL_ROW(col, row) ((col) + 4 * (row))
+#define COL_ROW(col, row) ((col) + 3 * (row))
 
     template <class T>
-    class tmat4 {
+    class mat3 {
     public:
 
-        T data[4*4];
+        T data[3*3];
 
 
         // Create a new identity matrix
-        tmat4() :
+        mat3() :
                 data{
-                             T(1), T(0), T(0), T(0),
-                             T(0), T(1), T(0), T(0),
-                             T(0), T(0), T(1), T(0),
-                             T(0), T(0), T(0), T(1),
-                    }
+                        T(1), T(0), T(0),
+                        T(0), T(1), T(0),
+                        T(0), T(0), T(1),
+                }
         {}
 
         // Create matrix filled with specific value
-        explicit tmat4(T value) :
+        explicit mat3(T value) :
                 data{value} {}
+
+
+        // Create matrix from raw data
+        explicit mat3(std::array<T, 3*3> list) {
+            for (int i = 0; i < 3 * 3; ++i) {
+                data[i] = list[i];
+            }
+        }
 
 
         // Get value in specific index
         inline T& operator[](int index) {
-            if (index >= 0 && index < 16)
+            if (index >= 0 && index < 3*3)
                 return data[index];
         }
 
         inline const T& operator[](int index) const {
-            if (index >= 0 && index < 16)
+            if (index >= 0 && index < 3*3)
                 return data[index];
         }
     };
@@ -50,14 +58,14 @@ namespace glt {
 
     // Matrix-matrix multiplication
     template <class T>
-    tmat4<T> operator*(const tmat4<T>& a, const tmat4<T>& b) {
-        tmat4<T> result{0};
+    mat3<T> operator*(const mat3<T>& a, const mat3<T>& b) {
+        mat3<T> result{0};
 
-        for (int col = 0; col < 4; ++col) {
-            for (int row = 0; row < 4; ++row) {
+        for (int col = 0; col < 3; ++col) {
+            for (int row = 0; row < 3; ++row) {
                 T& r = result[COL_ROW(col, row)];
 
-                for (int k = 0; k < 4; ++k) {
+                for (int k = 0; k < 3; ++k) {
                     r += a[COL_ROW(k, row)] * b[COL_ROW(col, k)];
                 }
             }
@@ -68,13 +76,13 @@ namespace glt {
 
     // Matrix-vector multiplication
     template <class T>
-    vec4<T> operator*(const tmat4<T>& a, const vec4<T>& b) {
-        vec4<T> result{0};
+    vec3<T> operator*(const mat3<T>& a, const vec3<T>& b) {
+        vec3<T> result{0};
 
-        for (int col = 0; col < 4; ++col) {
+        for (int col = 0; col < 3; ++col) {
             T& r = result[col];
 
-            for (int k = 0; k < 4; ++k) {
+            for (int k = 0; k < 3; ++k) {
                 r += a[COL_ROW(col, k)] * b[k];
             }
         }

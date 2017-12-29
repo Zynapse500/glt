@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "tmat4.hpp"
+#include "mat4.hpp"
 
 #include "mat_core.hpp"
 #include "mat_projection.hpp"
@@ -13,6 +13,6 @@ namespace glt {
 
 
     // Define common matrix types
-    typedef tmat4<float> mat4f;
-    typedef tmat4<double> mat4d;
+    typedef mat4<float> mat4f;
+    typedef mat4<double> mat4d;
 }

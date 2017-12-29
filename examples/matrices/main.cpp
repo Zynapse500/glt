@@ -14,6 +14,23 @@ void print(glt::vec4<T> v) {
 }
 
 
+template <class T>
+void print(glt::mat4<T> m) {
+    cout << "[" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        cout << "  ";
+        for (int j = 0; j < 4; ++j) {
+            if (m[i + 4 * j] == -0) {
+                m[i + 4 * j] = 0;
+            }
+            cout << m[i + 4 * j] << ", ";
+        }
+        cout << endl;
+    }
+    cout << "]" << endl;
+}
+
 
 int main() {
     glt::mat4f a;
@@ -27,4 +44,18 @@ int main() {
     glt::vec4f res = t * p;
 
     print(res);
+
+    glt::mat4f mat { {
+                             1, 0, 0, 2,
+                             0, 1, 0, 0,
+                             2, 2, 1, 0,
+                             2, 0, 0, 1,
+                     }};
+
+    glt::mat4f inv = glt::inverse(mat);
+
+    glt::mat4f result = inv * mat;
+
+    print(inv);
+    print(result);
 }

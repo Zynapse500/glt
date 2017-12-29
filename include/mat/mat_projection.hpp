@@ -5,7 +5,7 @@
 #pragma once
 
 
-#include "tmat4.hpp"
+#include "mat4.hpp"
 
 #include "mat_core.hpp"
 
@@ -14,9 +14,9 @@ namespace glt {
     // Create an orthographic projection matrix
     // Maps the ranges [left, right], [bottom, top] and [near, far] into [-1, 1]
     template <class T>
-    tmat4<T> orthographic(T left, T right, T bottom, T top, T near, T far) {
+    mat4<T> orthographic(T left, T right, T bottom, T top, T near, T far) {
         // The projection matrix
-        tmat4<T> projection{};
+        mat4<T> projection{};
 
         vec3<T> translation = {
                 -(right + left)/(right - left),
@@ -42,12 +42,12 @@ namespace glt {
     }
 
     template <class T>
-    tmat4<T> orthographic(T left, T right, T bottom, T top) {
+    mat4<T> orthographic(T left, T right, T bottom, T top) {
         return orthographic(left, right, bottom, top, T(-1), T(1));
     }
 
 
     // Create a perspective projection matrix
     template <class T>
-    tmat4<T> projection(T fov, T aspect, T near, T far);
+    mat4<T> projection(T fov, T aspect, T near, T far);
 }
