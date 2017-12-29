@@ -24,7 +24,7 @@ namespace glt {
 
         template <class C>
         inline explicit vec2(const vec2<C>& vec) :
-                x(vec.x), y(vec.y)
+                x(T(vec.x)), y(T(vec.y))
         {}
 
 
@@ -64,22 +64,22 @@ namespace glt {
 
 
         // Assignment
-        inline vec2<T> operator+=(const vec2<T>& other) {
+        inline void operator+=(const vec2<T>& other) {
             this->x += other.x;
             this->y += other.y;
         }
 
-        inline vec2<T> operator-=(const vec2<T>& other) {
+        inline void operator-=(const vec2<T>& other) {
             this->x -= other.x;
             this->y -= other.y;
         }
 
-        inline vec2<T> operator*=(const vec2<T>& other) {
+        inline void operator*=(const vec2<T>& other) {
             this->x *= other.x;
             this->y *= other.y;
         }
 
-        inline vec2<T> operator/=(const vec2<T>& other) {
+        inline void operator/=(const vec2<T>& other) {
             this->x /= other.x;
             this->y /= other.y;
         }
