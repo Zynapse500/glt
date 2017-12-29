@@ -13,7 +13,14 @@ namespace glt {
     struct vec3 {
     public:
 
-        T x, y, z;
+        union {
+            struct {
+                T x, y, z;
+            };
+            struct {
+                T r, g, b;
+            };
+        };
 
         inline vec3() = default;
 

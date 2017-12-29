@@ -11,7 +11,14 @@ namespace glt {
     struct vec2 {
     public:
 
-        T x, y;
+        union {
+            struct {
+                T x, y;
+            };
+            struct {
+                T r, g;
+            };
+        };
 
         inline vec2() = default;
 
