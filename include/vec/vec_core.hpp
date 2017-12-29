@@ -120,7 +120,7 @@ namespace glt {
                 ::floor((v.x)),
                 ::floor((v.y)),
                 ::floor((v.z)),
-        }
+        };
     }
 
     template<class T>
