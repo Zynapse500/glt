@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 #include "vec2.hpp"
 
 
@@ -41,11 +40,11 @@ namespace glt {
 
         // Conversion between vector types
 
-        inline vec3(const vec2<T>& v, T z = T()) : // NOLINT
+        inline explicit vec3(const vec2<T>& v, T z = T()) :
                 x(v.x), y(v.y), z(z)
         {}
 
-        inline vec3(T x, const vec2<T>& v) : // NOLINT
+        inline explicit vec3(T x, const vec2<T>& v) :
                 x(x), y(v.x), z(v.y)
         {}
 

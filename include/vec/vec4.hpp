@@ -55,7 +55,7 @@ namespace glt {
                 x(x), y(w), z(v.x), w(v.y)
         {}
 
-        inline vec4(const vec2<T>& a, const vec2<T>& b) :
+        inline explicit vec4(const vec2<T>& a, const vec2<T>& b) :
                 x(a.x), y(a.y), z(b.x), w(b.y)
         {}
 
@@ -72,12 +72,12 @@ namespace glt {
 
 
         // Convert to simpler types
-        inline operator vec2<T>() { // NOLINT
-            return {x, y};
+        inline explicit operator vec3<T>() {
+            return {x, y, z};
         }
 
-        inline operator vec3<T>() { // NOLINT
-            return {x, y, z};
+        inline explicit operator vec2<T>() {
+            return {x, y};
         }
 
 
