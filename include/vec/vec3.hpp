@@ -44,7 +44,7 @@ namespace glt {
         {}
 
         inline explicit vec3(const vec2<T>& v, T z) :
-                x(x), y(v.x), z(z)
+                x(v.x), y(v.y), z(z)
         {}
 
         inline explicit vec3(T x, const vec2<T>& v) :
