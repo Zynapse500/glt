@@ -201,8 +201,8 @@ namespace glt {
                 {
                         1,         0,         0,         0,
                         0,         1,         0,         0,
-                        0,         0,         1,         1,
-                        -center.x, -center.y, -center.z, 0,
+                        0,         0,         1,         0,
+                        -center.x, -center.y, -center.z, 1,
                 }
         };
 
