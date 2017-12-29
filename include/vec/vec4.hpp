@@ -43,16 +43,28 @@ namespace glt {
         // Conversion between vector types
 
         // From vec2
-        inline vec4(const vec2<T>& v, T z = T(), T w = T()) : // NOLINT
+        inline explicit vec4(const vec2<T>& v) :
+                x(v.x), y(v.y), z(T()), w(T())
+        {}
+
+        inline explicit vec4(const vec2<T>& v, T z) :
+                x(v.x), y(v.y), z(z), w(T())
+        {}
+
+        inline explicit vec4(const vec2<T>& v, T z, T w) :
                 x(v.x), y(v.y), z(z), w(w)
         {}
 
-        inline vec4(T x, const vec2<T>& v, T w = T()) : // NOLINT
+        inline explicit vec4(T x, const vec2<T>& v) :
+                x(x), y(v.x), z(v.y), w(T())
+        {}
+
+        inline explicit vec4(T x, const vec2<T>& v, T w) :
                 x(x), y(v.x), z(v.y), w(w)
         {}
 
-        inline vec4(T x, T y, const vec2<T>& v) : // NOLINT
-                x(x), y(w), z(v.x), w(v.y)
+        inline explicit vec4(T x, T y, const vec2<T>& v) :
+                x(x), y(y), z(v.x), w(v.y)
         {}
 
         inline explicit vec4(const vec2<T>& a, const vec2<T>& b) :
@@ -61,25 +73,30 @@ namespace glt {
 
 
         // From vec3
-        inline vec4(const vec3<T>& v, T w = T()) : // NOLINT
+        inline explicit vec4(const vec3<T>& v) :
+                x(v.x), y(v.y), z(v.z), w(T())
+        {}
+
+        inline explicit vec4(const vec3<T>& v, T w) :
                 x(v.x), y(v.y), z(v.z), w(w)
         {}
 
-        inline vec4(T x, const vec3<T>& v) : // NOLINT
+        inline vec4(T x, const vec3<T>& v) :
                 x(x), y(v.x), z(v.y), w(v.z)
         {}
 
 
 
         // Convert to simpler types
-        inline explicit operator vec3<T>() {
+        template <class C>
+        inline operator vec3<C>() {
             return {x, y, z};
         }
 
-        inline explicit operator vec2<T>() {
-            return {x, y};
+        template <class C>
+        inline operator vec4<C>() {
+            return {x, y, z, w};
         }
-
 
         // Get value from index
         inline T& operator[](int index) {

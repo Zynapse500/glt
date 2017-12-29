@@ -100,7 +100,8 @@ int main() {
 
     // Convert from vec4f to vec3f
     glt::vec4f v4{1, 2, 3, 4};
-    print(static_cast<glt::vec3f>(v4));
+    glt::vec3f v3 = v4;
+    print(v3);
 
     return 0;
 }

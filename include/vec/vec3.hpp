@@ -24,7 +24,7 @@ namespace glt {
         inline vec3() = default;
 
         template <class C>
-        inline vec3(const vec3<C> &vec) : // NOLINT
+        inline explicit vec3(const vec3<C> &vec) :
                 x(vec.x), y(vec.y), z(vec.z)
         {}
 
@@ -39,9 +39,12 @@ namespace glt {
 
 
         // Conversion between vector types
+        inline explicit vec3(const vec2<T>& v) :
+                x(v.x), y(v.y), z(T())
+        {}
 
-        inline explicit vec3(const vec2<T>& v, T z = T()) :
-                x(v.x), y(v.y), z(z)
+        inline explicit vec3(const vec2<T>& v, T z) :
+                x(x), y(v.x), z(z)
         {}
 
         inline explicit vec3(T x, const vec2<T>& v) :
@@ -49,8 +52,14 @@ namespace glt {
         {}
 
 
-        inline operator vec2<T>() {
+        template <class C>
+        inline operator vec2<C>() {
             return {x, y};
+        }
+
+        template <class C>
+        inline operator vec3<C>() {
+            return {x, y, z};
         }
 
 
