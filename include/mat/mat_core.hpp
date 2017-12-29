@@ -130,7 +130,7 @@ namespace glt {
         translation[13] = amount.y;
         translation[14] = amount.z;
 
-        return m * translation;
+        return translation * m;
     }
 
 
