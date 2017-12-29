@@ -85,6 +85,11 @@ int main() {
     cout << "a . b = " << glt::dot(a, b) << endl;
 
 
+    // Cross product between vectors
+    cout << "[1, 2, 0] x [0, 1, 0] = ";
+    print(glt::cross(glt::vec3f{1, 2, 0}, glt::vec3f{0, 1, 0}));
+
+
     // Length/magnitude of vector
     cout << "|a| = " << glt::length(a) << endl;
 

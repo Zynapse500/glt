@@ -188,20 +188,24 @@ namespace glt {
         vec3<T> y = cross(z, x);
 
         // The orientation matrix
-        mat4<T> orientation;
+        mat4<T> orientation {
+                {
+                        x.x, y.x, z.x, 0,
+                        x.y, y.y, z.y, 0,
+                        x.z, y.z, z.z, 0,
+                        0,   0,   0,   1,
+                }
+        };
 
-        orientation[0] = x.x;
-        orientation[1] = y.x;
-        orientation[2] = z.x;
+        mat4<T> translation {
+                {
+                        1,         0,         0,         0,
+                        0,         1,         0,         0,
+                        0,         0,         1,         1,
+                        -center.x, -center.y, -center.z, 0,
+                }
+        };
 
-        orientation[4] = x.y;
-        orientation[5] = y.y;
-        orientation[6] = z.y;
-
-        orientation[8]  = x.z;
-        orientation[9]  = y.z;
-        orientation[10] = z.z;
-
-        return translate(orientation, -center);
+        return orientation * translation;
     }
 }
