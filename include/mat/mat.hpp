@@ -21,8 +21,8 @@ namespace glt {
 
     // Define equality operators
     template <class T>
-    bool operator==(const glt::mat4<T>& a, const glt::mat4<T>& b) {
-        for (int i = 0; i < 4 * 4; ++i) {
+    bool operator==(const glt::mat2<T>& a, const glt::mat2<T>& b) {
+        for (int i = 0; i < 2 * 2; ++i) {
             if (a[i] != b[i]) {
                 return false;
             }
@@ -43,8 +43,8 @@ namespace glt {
     }
 
     template <class T>
-    bool operator==(const glt::mat2<T>& a, const glt::mat2<T>& b) {
-        for (int i = 0; i < 2 * 2; ++i) {
+    bool operator==(const glt::mat4<T>& a, const glt::mat4<T>& b) {
+        for (int i = 0; i < 4 * 4; ++i) {
             if (a[i] != b[i]) {
                 return false;
             }
@@ -52,13 +52,12 @@ namespace glt {
 
         return true;
     }
-
 
 
     // Define inequality operators
     template <class T>
-    bool operator==(const glt::mat4<T>& a, const glt::mat4<T>& b) {
-        for (int i = 0; i < 4 * 4; ++i) {
+    bool operator!=(const glt::mat2<T>& a, const glt::mat2<T>& b) {
+        for (int i = 0; i < 2 * 2; ++i) {
             if (a[i] == b[i]) {
                 return false;
             }
@@ -68,7 +67,7 @@ namespace glt {
     }
 
     template <class T>
-    bool operator==(const glt::mat3<T>& a, const glt::mat3<T>& b) {
+    bool operator!=(const glt::mat3<T>& a, const glt::mat3<T>& b) {
         for (int i = 0; i < 3 * 3; ++i) {
             if (a[i] == b[i]) {
                 return false;
@@ -79,8 +78,8 @@ namespace glt {
     }
 
     template <class T>
-    bool operator==(const glt::mat2<T>& a, const glt::mat2<T>& b) {
-        for (int i = 0; i < 2 * 2; ++i) {
+    bool operator!=(const glt::mat4<T>& a, const glt::mat4<T>& b) {
+        for (int i = 0; i < 4 * 4; ++i) {
             if (a[i] == b[i]) {
                 return false;
             }
