@@ -43,17 +43,17 @@ namespace glt {
     ///////////////////////////
 
     template<class T>
-    inline T squaredLength(const vec2<T> &a) {
+    inline T lengthSquared(const vec2<T> &a) {
         return dot(a, a);
     }
 
     template<class T>
-    inline T squaredLength(const vec3<T> &a) {
+    inline T lengthSquared(const vec3<T> &a) {
         return dot(a, a);
     }
 
     template<class T>
-    inline T squaredLength(const vec4<T> &a) {
+    inline T lengthSquared(const vec4<T> &a) {
         return dot(a, a);
     }
 
@@ -61,17 +61,51 @@ namespace glt {
     // Return the length (magnitude) of a vector
     template<class T>
     inline T length(const vec2<T> &a) {
-        return sqrt(squaredLength(a));
+        return sqrt(lengthSquared(a));
     }
 
     template<class T>
     inline T length(const vec3<T> &a) {
-        return sqrt(squaredLength(a));
+        return sqrt(lengthSquared(a));
     }
 
     template<class T>
     inline T length(const vec4<T> &a) {
-        return sqrt(squaredLength(a));
+        return sqrt(lengthSquared(a));
+    }
+
+
+    // Return the squared distance between two vectors
+    template<class T>
+    inline T distanceSquared(const vec2<T> &a, const vec2<T> &b) {
+        return lengthSquared(a - b);
+    }
+
+    template<class T>
+    inline T distanceSquared(const vec3<T> &a, const vec3<T> &b) {
+        return lengthSquared(a - b);
+    }
+
+    template<class T>
+    inline T distanceSquared(const vec4<T> &a, const vec4<T> &b) {
+        return lengthSquared(a - b);
+    }
+
+
+    // Return the distance between two vectors
+    template<class T>
+    inline T distance(const vec2<T> &a, const vec2<T> &b) {
+        return sqrt(distanceSquared(a, b));
+    }
+
+    template<class T>
+    inline T distance(const vec3<T> &a, const vec3<T> &b) {
+        return sqrt(distanceSquared(a, b));
+    }
+
+    template<class T>
+    inline T distance(const vec4<T> &a, const vec4<T> &b) {
+        return sqrt(distanceSquared(a, b));
     }
 
 

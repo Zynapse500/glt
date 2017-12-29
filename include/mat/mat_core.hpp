@@ -130,7 +130,7 @@ namespace glt {
         translation[13] = amount.y;
         translation[14] = amount.z;
 
-        return translation * m;
+        return m * translation;
     }
 
 
@@ -187,7 +187,6 @@ namespace glt {
         vec3<T> x = normalize(cross(up, z));
         vec3<T> y = cross(z, x);
 
-
         // The orientation matrix
         mat4<T> orientation;
 
@@ -199,8 +198,8 @@ namespace glt {
         orientation[5] = y.y;
         orientation[6] = z.y;
 
-        orientation[8] = x.z;
-        orientation[9] = y.z;
+        orientation[8]  = x.z;
+        orientation[9]  = y.z;
         orientation[10] = z.z;
 
         return translate(orientation, -center);
