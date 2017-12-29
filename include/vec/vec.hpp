@@ -28,4 +28,37 @@ namespace glt {
     typedef vec4<double> vec4d;
 
 
+
+    // Define equality operators
+    template <class T>
+    bool operator==(const glt::vec2<T>& a, const glt::vec2<T>& b) {
+        return (a.x == b.x && a.y == b.y);
+    }
+
+    template <class T>
+    bool operator==(const glt::vec3<T>& a, const glt::vec3<T>& b) {
+        return (a.x == b.x && a.y == b.y && a.z == b.z);
+    }
+
+    template <class T>
+    bool operator==(const glt::vec4<T>& a, const glt::vec4<T>& b) {
+        return (a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w);
+    }
+
+
+    // Define inequality operators
+    template <class T>
+    bool operator!=(const glt::vec2<T>& a, const glt::vec2<T>& b) {
+        return (a.x != b.x && a.y != b.y);
+    }
+
+    template <class T>
+    bool operator!=(const glt::vec3<T>& a, const glt::vec3<T>& b) {
+        return (a.x != b.x && a.y != b.y && a.z != b.z);
+    }
+
+    template <class T>
+    bool operator!=(const glt::vec4<T>& a, const glt::vec4<T>& b) {
+        return (a.x != b.x && a.y != b.y && a.z != b.z && a.w != b.w);
+    }
 }
