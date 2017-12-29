@@ -4,9 +4,8 @@
 
 #pragma once
 
-namespace std {
-    #include <cmath>
-}
+#include <cmath>
+
 
 #include "vec4.hpp"
 #include "vec3.hpp"
@@ -109,69 +108,69 @@ namespace glt {
     // Round downward
     template <class T>
     vec2<T> floor(const vec2<T>& v) {
-        v.x = std::floor((v.x));
-        v.y = std::floor((v.y));
+        v.x = ::floor((v.x));
+        v.y = ::floor((v.y));
     }
 
     template <class T>
     vec3<T> floor(const vec3<T>& v) {
-        v.x = std::floor((v.x));
-        v.y = std::floor((v.y));
-        v.z = std::floor((v.z));
+        v.x = ::floor((v.x));
+        v.y = ::floor((v.y));
+        v.z = ::floor((v.z));
     }
 
     template <class T>
     vec4<T> floor(const vec4<T>& v) {
-        v.x = std::floor((v.x));
-        v.y = std::floor((v.y));
-        v.z = std::floor((v.z));
-        v.w = std::floor((v.w));
+        v.x = ::floor((v.x));
+        v.y = ::floor((v.y));
+        v.z = ::floor((v.z));
+        v.w = ::floor((v.w));
     }
 
 
     // Round to nearest whole number
     template <class T>
     vec2<T> round(const vec2<T>& v) {
-        v.x = std::round((v.x));
-        v.y = std::round((v.y));
+        v.x = ::round((v.x));
+        v.y = ::round((v.y));
     }
 
     template <class T>
     vec3<T> round(const vec3<T>& v) {
-        v.x = std::round((v.x));
-        v.y = std::round((v.y));
-        v.z = std::round((v.z));
+        v.x = ::round((v.x));
+        v.y = ::round((v.y));
+        v.z = ::round((v.z));
     }
 
     template <class T>
     vec4<T> round(const vec4<T>& v) {
-        v.x = std::round((v.x));
-        v.y = std::round((v.y));
-        v.z = std::round((v.z));
-        v.w = std::round((v.w));
+        v.x = ::round((v.x));
+        v.y = ::round((v.y));
+        v.z = ::round((v.z));
+        v.w = ::round((v.w));
     }
 
 
     // Round upward
     template <class T>
     vec2<T> ceil(const vec2<T>& v) {
-        v.x = std::ceil((v.x));
-        v.y = std::ceil((v.y));
+        v.x = ::ceil((v.x));
+        v.y = ::ceil((v.y));
     }
 
     template <class T>
     vec3<T> ceil(const vec3<T>& v) {
-        v.x = std::ceil((v.x));
-        v.y = std::ceil((v.y));
-        v.z = std::ceil((v.z));
+        v.x = ::ceil((v.x));
+        v.y = ::ceil((v.y));
+        v.z = ::ceil((v.z));
     }
 
     template <class T>
     vec4<T> ceil(const vec4<T>& v) {
-        v.x = std::ceil((v.x));
-        v.y = std::ceil((v.y));
-        v.z = std::ceil((v.z));
-        v.w = std::ceil((v.w));
+        v.x = ::ceil((v.x));
+        v.y = ::ceil((v.y));
+        v.z = ::ceil((v.z));
+        v.w = ::ceil((v.w));
     }
 }
 
