@@ -125,7 +125,7 @@ namespace glt {
     // Addition
     template<class T>
     inline vec3<T> operator+(const vec3<T> &lhs, const vec3<T> &rhs) {
-        return {lhs.x + rhs.x, lhs.x + rhs.y, lhs.z + rhs.z};
+        return {lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z};
     }
 
     template<class T>
