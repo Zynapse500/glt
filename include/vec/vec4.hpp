@@ -35,8 +35,7 @@ namespace glt {
                 x(x), y(y), z(z), w(w)
         {}
 
-        template <class C>
-        inline explicit vec4(C a) :
+        inline explicit vec4(T a) :
                 x(a), y(a), z(a), w(a)
         {}
 

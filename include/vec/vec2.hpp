@@ -33,8 +33,7 @@ namespace glt {
                 x(a), y(b)
         {}
 
-        template <class C>
-        inline explicit vec2(C a) :
+        inline explicit vec2(T a) :
                 x(a), y(a)
         {}
 
