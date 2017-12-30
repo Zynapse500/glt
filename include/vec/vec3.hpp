@@ -24,7 +24,7 @@ namespace glt {
         inline vec3() = default;
 
         template <class C>
-        inline explicit vec3(const vec3<C> &vec) :
+        inline vec3(const vec3<C> &vec) :
                 x(vec.x), y(vec.y), z(vec.z)
         {}
 
@@ -33,8 +33,7 @@ namespace glt {
                 x(x), y(y), z(z)
         {}
 
-        template <class C>
-        inline explicit vec3(C a) :
+        inline explicit vec3(T a) :
                 x(a), y(a), z(a)
         {}
 
