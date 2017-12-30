@@ -28,26 +28,31 @@ namespace glt {
                 x(vec.x), y(vec.y), z(vec.z)
         {}
 
-        inline vec3(T x, T y, T z) :
+        template <class C>
+        inline vec3(C x, C y, C z) :
                 x(x), y(y), z(z)
         {}
 
-        inline explicit vec3(T a) :
+        template <class C>
+        inline explicit vec3(C a) :
                 x(a), y(a), z(a)
         {}
 
 
 
         // Promote simpler types
-        inline explicit vec3(const vec2<T>& v) :
+        template <class C>
+        inline explicit vec3(const vec2<C>& v) :
                 x(v.x), y(v.y), z(T())
         {}
 
-        inline explicit vec3(const vec2<T>& v, T z) :
+        template <class C>
+        inline explicit vec3(const vec2<C>& v, C z) :
                 x(v.x), y(v.y), z(z)
         {}
 
-        inline explicit vec3(T x, const vec2<T>& v) :
+        template <class C>
+        inline explicit vec3(C x, const vec2<C>& v) :
                 x(x), y(v.x), z(v.y)
         {}
 

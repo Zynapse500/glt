@@ -30,11 +30,13 @@ namespace glt {
                 x(vec.x), y(vec.y), z(vec.z), w(vec.w)
         {}
 
-        inline vec4(T x, T y, T z, T w) :
+        template <class C>
+        inline vec4(C x, C y, C z, C w) :
                 x(x), y(y), z(z), w(w)
         {}
 
-        inline explicit vec4(T a) :
+        template <class C>
+        inline explicit vec4(C a) :
                 x(a), y(a), z(a), w(a)
         {}
 
@@ -43,45 +45,55 @@ namespace glt {
         // Conversion between vector types
 
         // From vec2
-        inline explicit vec4(const vec2<T>& v) :
+        template <class C>
+        inline explicit vec4(const vec2<C>& v) :
                 x(v.x), y(v.y), z(T()), w(T())
         {}
 
-        inline explicit vec4(const vec2<T>& v, T z) :
+        template <class C>
+        inline explicit vec4(const vec2<C>& v, C z) :
                 x(v.x), y(v.y), z(z), w(T())
         {}
 
-        inline explicit vec4(const vec2<T>& v, T z, T w) :
+        template <class C>
+        inline explicit vec4(const vec2<C>& v, C z, C w) :
                 x(v.x), y(v.y), z(z), w(w)
         {}
 
-        inline explicit vec4(T x, const vec2<T>& v) :
+        template <class C>
+        inline explicit vec4(C x, const vec2<C>& v) :
                 x(x), y(v.x), z(v.y), w(T())
         {}
 
-        inline explicit vec4(T x, const vec2<T>& v, T w) :
+        template <class C>
+        inline explicit vec4(C x, const vec2<C>& v, C w) :
                 x(x), y(v.x), z(v.y), w(w)
         {}
 
-        inline explicit vec4(T x, T y, const vec2<T>& v) :
+        template <class C>
+        inline explicit vec4(C x, C y, const vec2<C>& v) :
                 x(x), y(y), z(v.x), w(v.y)
         {}
 
-        inline explicit vec4(const vec2<T>& a, const vec2<T>& b) :
+        template <class C>
+        inline explicit vec4(const vec2<C>& a, const vec2<C>& b) :
                 x(a.x), y(a.y), z(b.x), w(b.y)
         {}
 
 
         // From vec3
-        inline explicit vec4(const vec3<T>& v) :
+        template <class C>
+        inline explicit vec4(const vec3<C>& v) :
                 x(v.x), y(v.y), z(v.z), w(T())
         {}
 
-        inline explicit vec4(const vec3<T>& v, T w) :
+        template <class C>
+        inline explicit vec4(const vec3<C>& v, C w) :
                 x(v.x), y(v.y), z(v.z), w(w)
         {}
 
-        inline vec4(T x, const vec3<T>& v) :
+        template <class C>
+        inline vec4(C x, const vec3<C>& v) :
                 x(x), y(v.x), z(v.y), w(v.z)
         {}
 

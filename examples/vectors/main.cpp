@@ -73,10 +73,10 @@ int main() {
     print(glt::vec3f(a));
 
     cout << "vec3f(a, 1) = ";
-    print(glt::vec3f(a, 1));
+    print(glt::vec3f(a, 1.f));
 
     cout << "vec3f(1, a) = ";
-    print(glt::vec3f(1, a));
+    print(glt::vec3f(1.f, a));
 
 
     // Basic vector operations

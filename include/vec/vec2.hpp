@@ -24,24 +24,24 @@ namespace glt {
 
         template <class C>
         inline explicit vec2(const vec2<C>& vec) :
-                x(T(vec.x)), y(T(vec.y))
+                x(vec.x), y(vec.y)
         {}
 
 
-        inline vec2(T a, T b) :
+        template <class C>
+        inline vec2(C a, C b) :
                 x(a), y(b)
         {}
 
-        inline explicit vec2(T a) :
+        template <class C>
+        inline explicit vec2(C a) :
                 x(a), y(a)
         {}
 
         template <class C>
         inline operator vec2<C>() {
-            return {C(x), C(y)};
+            return {static_cast<C>(x), static_cast<C>(y)};
         }
-
-
 
         // Get value from index
         inline T& operator[](int index) {
